@@ -6,6 +6,20 @@ for i in range(len(a)-1):
     k.append(a[i] + a[i+1])
 print(len(k), max(k))
 
+f = open('17_1.txt')
+a = [int(x) for x in f]
+k = []
+w = []
+for c in a:
+  if 999 < c < 10000:
+    w.append(c)
+r = max(w)
+for i in range(len(a)-1):
+    g = abs(a[i]-a[i+1])
+    if g >= r:
+        k.append(a[i] + a[i+1])
+print(len(k), max(k))
+
 #------------------------------------------------------------
 
 f = open('17_2.txt')
@@ -41,6 +55,22 @@ print(len(k), max(k))
 
 #------------------------------------------------------------
 
+f  = open('17_23201.txt')
+a = [int(x) for x in f]
+v = []
+k = []
+for c in a:
+    if (99 < c < 1000) and c%10 == 7:
+        v.append(c)
+b = min(v)  
+for i in range(1, len(a)-1):
+    c = (99 < a[i] < 1000) + (99 < a[i+1] < 1000)
+    if c == 1 and (a[i] + a[i+1])%b==0:
+        k.append(a[i] + a[i+1])
+print(len(k), min(k))
+
+#------------------------------------------------------------
+
 f = open('17.txt')
 v = [int(x) for x in f]
 p = []
@@ -56,6 +86,22 @@ for i in range(len(v)-1):
   if c == 1 and (abs(v[i] - v[i+1])%min(m) == 0):
     p.append(v[i] + v[i+1])
 print(len(p), max(p))
+
+#------------------------------------------------------------
+
+f = open('17_2.txt')
+a = [int(x) for x in f]
+k = []
+v = []
+for b in a:
+  if b%2025 == 0:
+    v.append(b)
+n = min(v)
+for i in range(len(a)-2):
+  c = [h for h in a[i:i+3] if (h%n)==0]
+  if len(c) >= 1 and (99999 < (a[i]+a[i+1]+a[i+2]) < 1000000):
+    k.append(a[i]+a[i+1]+a[i+2])
+print(len(k), max(k))
 
 #------------------------------------------------------------
 

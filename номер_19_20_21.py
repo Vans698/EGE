@@ -90,6 +90,21 @@ print([s2 for s2 in range(16, 31) if f(15, s2, 4) and not(f(15, s2, 2))])
 
 #------------------------------------------------------------
 
+def f(s1, s2, m):
+    if s1 + s2 <= 42: return m%2 == 0
+    if m == 0: return 0
+    if s1 >= 4 and s2 >= 4: h = [f(s1-4, s2, m-1), f(s1, s2-4, m-1), f(s1//3, s2, m-1), f(s1, s2//3, m-1)]
+    elif s1 < 4 and s2 >= 4: h = [f(s1, s2-4, m-1), f(s1//3, s2, m-1), f(s1, s2//3, m-1)]
+    elif s1 >= 4 and s2 < 4: h = [f(s1-4, s2, m-1), f(s1//3, s2, m-1), f(s1, s2//3, m-1)]
+    else: h = [f(s1//3, s2, m-1), f(s1, s2//3, m-1)]
+    return any(h) if (m-1) % 2 == 0 else all(h) # any(c) когда при неудачном ходе первого
+
+print([s2 for s2 in range(2, 200) if f(50, s2, 2)])
+print([s2 for s2 in range(2, 200) if f(50, s2, 3) and not(f(50, s2, 1))])
+print([s2 for s2 in range(2, 200) if f(50, s2, 4) and not(f(50, s2, 2))])
+
+#------------------------------------------------------------
+
 def f(s1, s2, m, x):
     if s1 + s2 <= 42: return m%2 == 0
     if m == 0: return 0

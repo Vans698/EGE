@@ -81,3 +81,28 @@ for x in itertools.product("01234567", repeat=5):
       if s.count("6") == 1 and s.count("16") == 0 and s.count("36") == 0 and s.count("56") == 0 and s.count("76") == 0 and s.count("61") == 0 and s.count("63") == 0 and s.count("65") == 0 and s.count("67") == 0:
         k += 1
 print(k)
+
+#------------------------------------------------------------
+
+from itertools import product
+
+k=0
+for x in product('0123456789ABCD', repeat=5):
+
+    if x[0] == '0':
+        continue
+
+    v = True
+    for i in range(5):
+        if x[i] in 'ABCD':
+            if i > 0 and x[i-1] in '13579':
+                v = False
+                break
+            if i < 4 and x[i+1] in '13579':
+                v = False
+                break
+
+    if v:
+        k += 1
+
+print(k)

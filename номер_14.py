@@ -33,6 +33,14 @@ for x in reversed(c):
     if v % 19 == 0:
         print(v)
 
+        
+c = sorted('0123456789qwertyuiopasdfghjklzxcvbnm')[:17]
+for x in reversed(''.join(c)):
+    m = f'5432{x}67'
+    b = f'302{x}'
+    z = int(m, 17) + int(b, 17)
+    if z%19 == 0:
+        print(z)
 #------------------------------------------------------------
 
 c = '0123456789abcdfghijklmnopqrstuvwxyz'[:14]

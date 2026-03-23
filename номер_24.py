@@ -44,6 +44,23 @@ print(max(v))
 
 #------------------------------------------------------------
 
+a = open('24_9.txt')
+s = a.readline()
+x = 0
+v = []
+i = 0
+while i < len(s) - 3:
+    if (s[i] == 'N' and s[i+1] == 'P' and s[i+2] == 'O') or (s[i] == 'P' and s[i+1] == 'N' and s[i+2] == 'O'):
+        x += 1
+        i += 3
+        v.append(x)
+    else:
+        i += 1
+        x = 0
+print(max(v))
+
+#------------------------------------------------------------
+
 a = open('24_0.txt')
 s = a.readline()
 x = ''
@@ -191,6 +208,27 @@ for i in range(len(v)-81):
   if s[v[i]+1:v[i+81]].count('2025') >= 90:
     b.append(x)
 print(max(b))
+
+#------------------------------------------------------------
+
+a = open('24.txt')
+s = a.readline()
+g = []
+k = 0
+for i in range(len(s)):
+    if s[i] == 'E':
+        k += 1
+        for x in range(i+1, len(s)):
+            if s[x] in 'ND':
+                k += 1
+            elif s[x] == 'E':
+                g.append(k+1)
+                k = 0
+                break
+            else:
+                k = 0
+                break
+print(max(g))   
 
 #------------------------------------------------------------
 

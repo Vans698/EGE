@@ -324,3 +324,22 @@ if len(b) >= 3:
         if f%2 != 0:
             dell.remove(y)
             print(max(dell))
+
+
+#------------------------------------------------------------
+
+def dell1(x1):
+  dell = []
+  for x1 in range(1, int(x**0.5)+1):
+    if x % x1 == 0:
+      dell.append(x1)
+      dell.append(x // x1)
+  return dell.sort()
+
+k = 0
+m = []
+for i in range((10**9)-1, (10**8)+1, -1):
+   while k <=5:
+      a = dell1(i)
+      
+      
