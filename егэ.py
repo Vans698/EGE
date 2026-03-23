@@ -147,7 +147,7 @@ for i in range(1, len(a)-1):
         k.append(a[i] + a[i+1])
 print(len(k), min(k))
 
-19 20 21
+# 19 20 21
 def f(s, m):
     if s <= 35: return m%2 == 0
     if m == 0: return 0
