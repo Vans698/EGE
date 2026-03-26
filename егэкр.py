@@ -30,7 +30,7 @@ f = open('17_2.2.txt')
 a = [int(x) for x in f]
 m=[]
 for i in a:
-    if abs(i)%2026:
+    if abs(i)%2026 == 0:
         m.append(i)
 v = max(m)
 l = []

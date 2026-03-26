@@ -328,18 +328,23 @@ if len(b) >= 3:
 
 #------------------------------------------------------------
 
-def dell1(x1):
+def dell1(x):
   dell = []
   for x1 in range(1, int(x**0.5)+1):
     if x % x1 == 0:
       dell.append(x1)
-      dell.append(x // x1)
-  return dell.sort()
+      if x1 != x//x1:
+        dell.append(x // x1)
+  return sorted(dell)
 
 k = 0
 m = []
-for i in range((10**9)-1, (10**8)+1, -1):
-   while k <=5:
-      a = dell1(i)
+for i in range((10**9)-1, (10**8)-1, -1):
+  if k == 5:
+    break
+  a = dell1(i)
+  if (i - len(a))%17 == 0:
+    k += 1
+    print(i)
       
       
