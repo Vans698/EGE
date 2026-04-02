@@ -8,17 +8,29 @@ for n in range(1, 10000):
     print(n)
     break
 
+a = []
+for n in range(33, 100000):
+  s = bin(n)[2:]
+  if n%2 != 0:
+      s = '1' + s[:-2] + '10'
+  else:
+      s = '10' + s[2:] + '1'
+  r = int(s, 2)
+  a.append(r) 
+
+print(min(a))
+
 # когда ищем n
-  for n in range(1, 10000, 1):
-    f = bin(n)[2:]
-    if f.count('1') % 2 == 0: 
-      f = "10" + f[2:] + '0'
-    else: 
-      f = "11" + f[2:] + '1'
-    r = int(f, 2)
-    if r > 40:
-      print(n)
-      break
+for n in range(1, 10000, 1):
+  f = bin(n)[2:]
+  if f.count('1') % 2 == 0: 
+    f = "10" + f[2:] + '0'
+  else: 
+    f = "11" + f[2:] + '1'
+  r = int(f, 2)
+  if r > 40:
+    print(n)
+    break
 
 # когда ищем min/max r
 a = []

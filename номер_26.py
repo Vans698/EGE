@@ -90,3 +90,33 @@ b2 = sorted(b, key = lambda x: (-x[1], x[0]))
 v2 = sorted(v, key = lambda x: (-x[1], x[0]))
 
 print(b2[-1], v2[0])
+
+#------------------------------------------------------------
+
+f = open('26.txt')
+a = [x for x in f]
+r = 199154
+cn = 95324
+minn = [int(x) for x in a[:r]]
+m_and_p = [[int(x) for x in y.split()] for y in a[r:]]
+
+minn = sorted(minn)
+m_and_p = sorted(m_and_p)
+
+mp = [0] * cn
+mp[-1] = cn - 1
+for i in range(cn - 2, -1, -1):
+  if m_and_p[i][1] < m_and_p[mp[i + 1]][1]:
+    mp[i] = i
+  else:
+    mp[i] = mp[i + 1]
+
+j = 0
+p = 0
+b = []
+for i in minn:
+  while i > m_and_p[j][0]:
+    j += 1
+  p += m_and_p[mp[j]][1]
+  b.append(m_and_p[mp[j]][0])
+print(p, max(b))
