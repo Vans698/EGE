@@ -65,3 +65,25 @@ for n in range(1, 10000):
   if 99 < d < 1000:
     a.append(d)
 print(min(a))
+
+#------------------------------------------------------------
+
+def f(x):
+    s = ''
+    while x > 0:
+        s = str(x%4) + s
+        x //= 4
+    return s
+
+a = []
+for n in range(1, 1000):
+    n2 = f(n)
+    if n%4 == 0:
+        n2 += n2[-2:]
+    else:
+        n2 += f((sum(int(x) for x in n2))*4)
+    r = int(n2, 4)
+    if r > 211 and r%3 == 0 and r%2 == 0:
+        a.append(r)
+
+print(min(a))

@@ -106,3 +106,13 @@ for x in product('0123456789ABCD', repeat=5):
         k += 1
 
 print(k)
+
+#------------------------------------------------------------
+
+from itertools import permutations
+k = set()
+for i in permutations('ПРОФИМАТИКА'):
+    s = ''.join(i)  
+    if s[0] != 'П' and 'ИИ' not in s:
+        k.add(s)
+print(len(k))
