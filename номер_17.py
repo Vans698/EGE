@@ -89,6 +89,24 @@ print(len(p), max(p))
 
 #------------------------------------------------------------
 
+f  = open('17.txt')
+a = [int(x) for x in f]
+m = []
+j = []
+for c in a:
+    if c % 100 == 42:
+        j.append(c)
+b = max(j)
+
+for i in range(len(a) - 2):
+    c = [h for h in a[i:i+3] if (99 < h < 1000 and h%10 == 9)]
+    summ = a[i] + a[i+1] + a[i+2]
+    if len(c) == 1 and summ > b:
+        m.append(summ)
+print(len(m), max(m))
+
+#------------------------------------------------------------
+
 f = open('17_2.txt')
 a = [int(x) for x in f]
 k = []

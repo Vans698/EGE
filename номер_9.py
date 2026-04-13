@@ -50,3 +50,21 @@ for i in f:
     if (sum(m2))*3 > math.prod(m1):
       c += 1
 print(c)
+
+# ------------------------------------------------------------
+
+f = open('9.txt')
+c = 0
+for i in f:
+    c += 1
+    a = [int(x) for x in i.split()]
+    m1 = []
+    m2 = []
+    for j in a:
+        if a.count(j) == 1:
+            m1.append(j)
+        if a.count(j) == 3:
+            m2.append(j)
+    if len(m1) == 4 and len(m2) == 3 and max(a) in m2 and (max(a)) % 10 == 0:
+        print(c)
+        break 
