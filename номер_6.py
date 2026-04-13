@@ -20,3 +20,23 @@ for x in range(-50,50):
 update()
 exitonclick()
 
+from turtle import *
+screensize(3000, 3000)
+tracer(0)
+c = 25
+lt(90)
+for i in range(42):
+  rt(60)
+  fd(7*c)
+  rt(60)
+up()
+for x in range(-50, 50):
+  for y in range(-50, 50):
+    goto(x*c, y*c)
+    if x == 0 or y == 0:
+      dot(3, 'red')
+    else:
+      dot(3, 'blue')
+update()
+exitonclick()
+

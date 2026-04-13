@@ -14,7 +14,7 @@ for i in f:
             c += 1
 print(c)
 
-#------------------------------------------------------------
+# ------------------------------------------------------------
 
 f = open('9.txt')
 c = 0
@@ -29,4 +29,24 @@ for k in f:
             m2.append(i)
     if len(m1) == 3 and len(m2) == 4 and sum(m1)/len(m1) > sum(m2)/len(m2):
         c += 1
+print(c)
+
+# ------------------------------------------------------------
+
+import math
+
+f = open('26.txt')
+c = 0
+for i in f:
+  m = [int(x) for x in i.split()]
+  m1 = []
+  m2 = []
+  for j in m:
+    if j%2 == 0:
+      m1.append(j)
+    if j%2 != 0:
+      m2.append(j)
+  if len(m1)>=2 and len(m2)>=2:
+    if (sum(m2))*3 > math.prod(m1):
+      c += 1
 print(c)

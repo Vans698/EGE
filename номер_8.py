@@ -116,3 +116,16 @@ for i in permutations('ПРОФИМАТИКА'):
     if s[0] != 'П' and 'ИИ' not in s:
         k.add(s)
 print(len(k))
+
+
+#------------------------------------------------------------
+
+from itertools import product
+from string import printable
+
+k = 0
+for i in product(printable[:13], repeat=7):
+  s = ''.join(i)
+  if s[0] != '0' and s.count('5') >= 2 and all(int(s[i], 13) % 2 != int(s[i + 1], 13)%2 for i in range(len(s) - 1)):
+    k+= 1
+print(k)

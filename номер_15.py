@@ -55,3 +55,13 @@ for la in range(200):
     if all([f(x + 0.5, la, ra) for x in range(200)]):
       v.append(ra-la)
 print(max(v))
+
+#------------------------------------------------------------
+
+def f(x, y, A):
+  return (-(x-2)**2 + 3 < y) or ((x-1)**2 + y**2 < 7) or (5*x + A > y)
+
+for A in range(-200, 200):
+  if all([f(x / 10, y / 10, A) for x in range(1, 200) for y in range(1, 200)]):
+    print(A)
+    break
