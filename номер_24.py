@@ -284,3 +284,23 @@ for i in x:
             break
         
 print(al)
+
+#------------------------------------------------------------
+
+f = open('224.txt')
+a = "_" + f.readline() + "@"
+
+b = []
+for i in range(len(a)):
+  # i.isdigit(), i.isalpha(), i.islower(), i.isupper()
+  if a[i] == '@' or a[i] == '_':
+    b.append(i)
+
+m = []
+for i in range(1, len(b)-2):
+  if a[b[i]] == '@' and a[b[i + 1]] == '_' and b[i+1] - b[i] > 1:
+    if a[b[i+1]+1].isalpha() and a[b[i]-1].isalpha():
+      x = b[i+2] - b[i-1] + 1 - 2
+      y = b[i+2] - b[i] + 1 - 2
+      m.append([x, y])
+print(max(m)[1])

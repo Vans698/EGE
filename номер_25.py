@@ -346,5 +346,22 @@ for i in range((10**9)-1, (10**8)-1, -1):
   if (i - len(a))%17 == 0:
     k += 1
     print(i)
-      
+
+#------------------------------------------------------------
+
+def dell(x):
+  d = []
+  for i in range(2, int(x**0.5)+1):
+      if x%i == 0:
+          d.append(i)
+          d.append(x // i)
+  return d
+
+
+x = 1_326_235
+for i in range(x, x + 300):
+  d = dell(i)
+  if len(d) == 2:
+      if str(d[0]).count('7') == 1 and str(d[1]).count('7') == 1:
+        print(i, max(d))
       
