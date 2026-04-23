@@ -304,3 +304,26 @@ for i in range(1, len(b)-2):
       y = b[i+2] - b[i] + 1 - 2
       m.append([x, y])
 print(max(m)[1])
+
+#------------------------------------------------------------
+
+f = open('24.txt')
+a = f.readline()
+g = []
+for i in range(len(a)):
+  if a[i].isdigit():
+    if int(a[i])%2 == 0:
+      g.append(i)
+
+v = []
+for h in range(len(g)-1):
+  s = 0
+  for j in range(g[h], g[h+1]):
+    if a[j] == 'S':
+      s += 1
+    if s == 35:
+      # [g[h]..j]
+      v.append(j-g[h]+1)
+  # [g[h]..g[h+1])
+
+print(max(v))
