@@ -129,6 +129,28 @@ for i in range(len(s)):
     lenn = len(x)
 print(max(v))
 
+#------------------------------------------------------------
+
+with open('24.txt') as f:
+  s = f.readline()
+
+m = []
+for i in range(len(s)):
+  if s[i] == 'A':
+    k = 0
+    summ = 0
+    for x in range(i, len(s)):
+      if s[x] in 'AEIUO':
+        k += 1
+      if s[x] in '0123456789':
+        summ += int(s[x])
+      if s[x] == 'Z':
+        break
+    if k == 50 and summ%7 == 0:
+      m.append(x-i+1)
+
+print(max(m))
+
 # или
 '''
 Задача для ровно 100 цифр

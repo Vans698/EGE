@@ -294,6 +294,18 @@ for x in range(0, int((10**9)**0.5)):
 
 #------------------------------------------------------------
 
+from fnmatch import fnmatch
+k = 0
+for x in range(0, 10**9+1, 124):
+  if k == 7:
+    break
+  if fnmatch(str(x), '1?3**5?'):
+    if not fnmatch(str(x), '1*77*1') and not fnmatch(str(x), '7*11*7'):
+      print(x, x//124)
+      k += 1
+
+#------------------------------------------------------------
+
 def prime(x):
   for v in range(2, int(x**0.5) + 1):
     if x % v == 0:
@@ -364,4 +376,23 @@ for i in range(x, x + 300):
   if len(d) == 2:
       if str(d[0]).count('7') == 1 and str(d[1]).count('7') == 1:
         print(i, max(d))
-      
+
+#------------------------------------------------------------
+
+def dell(x):
+  d = []
+  for i in range(2, int(x**0.5)+1):
+    if x%i == 0:
+      if i%10 == 7:
+        d.append(i)
+      if i != x//i:
+        if (x//i)%10 == 7:
+          d.append(x//i)
+  return d
+
+k = 0
+for i in range(700001, 705000):
+  d = dell(i)
+  if len(d) > 0 and k < 5:
+    k += 1
+    print(i, min(d))

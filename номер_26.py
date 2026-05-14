@@ -120,3 +120,25 @@ for i in minn:
   p += m_and_p[mp[j]][1]
   b.append(m_and_p[mp[j]][0])
 print(p, max(b))
+
+#------------------------------------------------------------
+
+with open('26.txt') as f:
+  a = [[int(y) for y in x.split()] for x in f]
+
+x = sum([x[1] for x in a])/len(a)
+rich = []
+for i in a:
+  if i[1] > x:
+    rich.append(i)
+v = 0
+b = 0
+c = []
+for n in rich:
+  z = n[0]
+  g = [x for x in rich if z == x[0]]
+  sold = len([x for x in g if x[2] == 0])
+  rem = len(g) - sold
+  c.append([sold, n[1], rem])
+c.sort(key=lambda x: (-x[0], -x[1], x[2]))
+print(c[0])
