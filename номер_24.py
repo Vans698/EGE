@@ -349,3 +349,17 @@ for h in range(len(g)-1):
   # [g[h]..g[h+1])
 
 print(max(v))
+
+#------------------------------------------------------------
+
+with open('24.txt') as f:
+    s = f.readline()
+    v = []
+    k = 0
+    for i in range(len(s)-4):
+        if s[i:i+5] == 'AHAHA':
+            v.append(k+4)
+            k = 0
+        else:
+            k += 1
+print(max(v))

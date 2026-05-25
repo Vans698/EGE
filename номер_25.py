@@ -396,3 +396,20 @@ for i in range(700001, 705000):
   if len(d) > 0 and k < 5:
     k += 1
     print(i, min(d))
+
+#------------------------------------------------------------
+
+def f(x):
+    v = []
+    for g in range(2, int(x**0.5)+1):
+        if x%g == 0:
+            if g%2 == 0:
+                v.append(g)
+            x2 = x//g
+            if g*g != x and x2%2 == 0:
+                v.append(x2)
+    return v
+
+for i in range(397438, 443521):
+    if len(f(i)) >= 142:
+        print(len(f(i)), max(f(i)))

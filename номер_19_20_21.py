@@ -64,7 +64,7 @@ def f(s1, s2, m):
     if s1+s2 >= 65: return m%2 == 0
     if m == 0: return 0
     c = [f(s1+1, s2, m-1), f(s1, s2+1, m-1), f(s1*3, s2, m-1), f(s1, s2*3, m-1)]
-    return any(c) if (m-1) % 2 == 0 else all(c) # any(c) когда при неудачном ходе первого
+    return any(c) if (m-1) % 2 == 0 else all(c) # any(c) при неудачном ходе первого
 # print([s2 for s2 in range(1, 59) if f(6, s2, 2)])
 print([s2 for s2 in range(1, 59) if f(6, s2, 3) and not(f(6, s2, 1))])
 print([s2 for s2 in range(1, 59) if f(6, s2, 4) and not(f(6, s2, 2))])

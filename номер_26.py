@@ -123,22 +123,17 @@ print(p, max(b))
 
 #------------------------------------------------------------
 
-with open('26.txt') as f:
-  a = [[int(y) for y in x.split()] for x in f]
+f = open('26.txt')
+a = [[int(y) for y in x.split()] for x in f]
+a.sort(key = lambda x: (x[0] + x[1], x[0]))
 
-x = sum([x[1] for x in a])/len(a)
-rich = []
-for i in a:
-  if i[1] > x:
-    rich.append(i)
-v = 0
-b = 0
-c = []
-for n in rich:
-  z = n[0]
-  g = [x for x in rich if z == x[0]]
-  sold = len([x for x in g if x[2] == 0])
-  rem = len(g) - sold
-  c.append([sold, n[1], rem])
-c.sort(key=lambda x: (-x[0], -x[1], x[2]))
-print(c[0])
+al = []
+v = [a[0]]
+for i in range(len(a)):
+    if (v[-1][0] + v[-1][1]) <= (a[i][0]):
+        v.append(a[i])
+
+for i in range(len(a)):
+    if (v[-2][0] + v[-2][1]) <= (a[i][0]):
+        v[-1] = a[i]
+print(len(v), 20_000 - (v[-1][0] + v[-1][1]))
