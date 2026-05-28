@@ -129,3 +129,16 @@ for i in product(printable[:13], repeat=7):
   if s[0] != '0' and s.count('5') >= 2 and all(int(s[i], 13) % 2 != int(s[i + 1], 13)%2 for i in range(len(s) - 1)):
     k+= 1
 print(k)
+
+#------------------------------------------------------------
+
+from itertools import product
+k = 0
+for i in product('0123456', repeat=5):
+  s = ''.join(i)
+  if s[0] != '0':
+    # if s.count('6') == 1 and all((c + c) not in s for c in '0123456'):
+    if s.count('6') == 1 and all(s[j] != s[j + 1] for j in range(4)):
+    # if s.count('6') == 1 and (s[1] != s[0] and s[1] != s[2] and s[3] != s[2] and s[3] != s[4]):
+      k += 1
+print(k)

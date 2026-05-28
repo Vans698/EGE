@@ -137,3 +137,20 @@ for i in range(len(a)):
     if (v[-2][0] + v[-2][1]) <= (a[i][0]):
         v[-1] = a[i]
 print(len(v), 20_000 - (v[-1][0] + v[-1][1]))
+
+#------------------------------------------------------------
+
+with open('26.txt') as f:
+  a = [[int(y) for y in x.split()] for x in f]
+  room = 18
+  query = 5187
+  a.sort()
+  rooms = [-1] * room
+  true = 0
+  for q in range(len(a)):
+    for r in range(len(rooms)):
+      if a[q][0] > rooms[r]:
+        rooms[r] = a[q][1]
+        true += 1
+        break
+print(true, rooms)

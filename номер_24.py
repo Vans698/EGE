@@ -350,7 +350,7 @@ for h in range(len(g)-1):
 
 print(max(v))
 
-#------------------------------------------------------------
+#------------------------------------------------------------ 
 
 with open('24.txt') as f:
     s = f.readline()
@@ -363,3 +363,17 @@ with open('24.txt') as f:
         else:
             k += 1
 print(max(v))
+
+#------------------------------------------------------------ 
+
+with open('24.txt') as f:
+  s = f.read()
+  v = []
+  for i in range(len(s)-1):
+    if s[i] in 'ABC' and s[i+1] in 'ABC':
+      v.append(i+1)
+  b = []
+  for k in range(len(v)-1):
+    x = v[k+1] - v[k]
+    b.append(x)
+print(max(b))

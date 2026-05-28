@@ -413,3 +413,24 @@ def f(x):
 for i in range(397438, 443521):
     if len(f(i)) >= 142:
         print(len(f(i)), max(f(i)))
+
+#------------------------------------------------------------
+
+def summ_del(x):
+  d = 0
+  for i in range(1, int(x**0.5)+1):
+    if x%i == 0:
+      d += i
+      if i != x//i:
+        d += x//i
+  return d
+    
+from fnmatch import *
+k = 0
+for g in range(500_000, 510_000):
+  h = summ_del(g)
+  if fnmatch(str(h), '*7?'):
+    print(g, h)
+    k += 1
+  if k == 5:
+    break
