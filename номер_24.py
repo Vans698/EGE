@@ -377,3 +377,26 @@ with open('24.txt') as f:
     x = v[k+1] - v[k]
     b.append(x)
 print(max(b))
+
+#------------------------------------------------------------ 
+
+with open('24.txt') as f:
+  s = f.readline()
+  l = []
+  k = 0
+  i = 0
+  while i < len(s)-4:
+    if s[i:i+4] not in 'XYZY':
+      if s[i] in 'XZ' and s[i+1] == 'Y':
+        k += 1
+        i += 2
+      else:
+        i += 1
+        l.append(k)
+        k = 0
+    else:
+      i += 1
+      l.append(k)
+      k = 0
+  l.append(k)
+print(max(l))

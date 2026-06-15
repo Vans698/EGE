@@ -154,3 +154,15 @@ with open('26.txt') as f:
         true += 1
         break
 print(true, rooms)
+
+#------------------------------------------------------------
+
+with open('26.txt') as f:
+  z = 9604
+  a = [int(x) for x in f]
+  a.sort()
+  k = [a[0]]
+  for i in range(len(a)):
+    if a[i] >= 1.1*k[-1]:
+      k.append(a[i])
+  print(len(k), k[-1])

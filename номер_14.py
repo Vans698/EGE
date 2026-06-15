@@ -73,6 +73,7 @@ for x in reversed(''.join(c)):
     z = int(m, 17) + int(b, 17)
     if z%19 == 0:
         print(z)
+
 #------------------------------------------------------------
 
 c = '0123456789abcdfghijklmnopqrstuvwxyz'[:14]
@@ -87,3 +88,22 @@ for x in c:
 print(max(f)[2])
 # c = sorted('0123456789qwertyuiopasdfghjklzxcvbnm')
 # print(c)
+
+#------------------------------------------------------------
+
+from string import printable
+s = printable[:36]
+print(s.find('n'))
+print(s.find('w'))
+print(s.find('y'))
+print(s.find('a'))
+print(s.find('r'))
+v = []
+for x in range(190):
+  for y in range(190):
+    a = 23 * 190 ** 2 + x * 190 ** 1 + 32 * 190 ** 0
+    b = 34 * 190 ** 3 + y * 190 ** 2 + 10 * 190 ** 1 + 27 * 190 ** 0
+    c  = a + b
+    if c%189 == 0:
+      v.append([x*y, c//189])
+print(max(v)[1])
