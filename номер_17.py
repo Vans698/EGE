@@ -137,3 +137,35 @@ for i in range(len(a)-2):
   if len(c) >=2 and sum(a[i:i+3])<=n: # если двухзачное число только одно
     k.append(a[i] + a[i+1] + a[i+2])  
 print(len(k), min(k))
+
+#------------------------------------------------------------
+
+def summ(x):
+    t = 0
+    while x > 0:
+        t += x%10
+        x //= 10
+    return t
+
+def summ_2(x):
+    t = 0
+    x = str(x)
+    for i in x:
+        t += int(i)
+    return t
+
+with open('17.txt') as f:
+    a = [int(x) for x in f]
+    v = []
+    for i in a:
+        if 99 < abs(i) < 1000:
+            v.append(i)
+    b = max(v)**3
+    
+    n = []
+    for g in range(len(a)-1):
+        c = [x for x in (a[g], a[g+1]) if summ_2(abs(x))%5 == 0]
+        if len(c) == 1 and abs((a[g])**2-(a[g+1])**2) >= b:
+            n.append(a[g]+a[g+1])
+
+    print(len(n), max(n))

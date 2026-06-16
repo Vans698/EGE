@@ -9,7 +9,7 @@ for i in range(10):
     rt(60)
     fd(30*c)
     rt(120)
-up()
+up() 
 for x in range(-50,50):
     for y in range(-50, 50):
         goto(x*c,y*c)

@@ -65,3 +65,16 @@ def f(n):
 
 print((f(10048) - f(10045))//f(10043))
 
+#------------------------------------------------------------
+
+from functools import lru_cache
+@lru_cache
+def f(n):
+    if n >= 2024:
+        return 1
+    else:
+        return f(n+2) + f(n+4)
+mass = []
+for i in range(2024, 0, -1):
+    mass.append(f(i))
+print(len(set(mass)))
