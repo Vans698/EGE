@@ -434,3 +434,26 @@ for g in range(500_000, 510_000):
     k += 1
   if k == 5:
     break
+
+#------------------------------------------------------------
+
+def ft(x):
+  for i in range(2, int(x**0.5)+1):
+    if x%i == 0:
+      return False
+  return True
+
+def f(x):
+  d = []
+  for i in range(2, int(x**0.5)+1):
+    if x%i == 0:
+      if ft(i) and '53' in str(i):
+        d.append(i)
+      if ft(x//i) and '53' in str(x//i):
+        d.append(x//i)
+      return sorted(d)
+  return []
+for i in range(4_501_347_296, 5_000_000_000):
+  m = f(i)
+  if len(m) == 2 and m[0]*m[1] == i:
+    print(i, min(m), m)

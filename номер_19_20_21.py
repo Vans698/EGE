@@ -123,3 +123,15 @@ def f(s1, s2, m, x):
 print([s2 for s2 in range(1, 150) if f(50, s2, 2, '')])
 print([s2 for s2 in range(1, 150) if f(50, s2, 3, '') and not(f(50, s2, 1, ''))])
 print([s2 for s2 in range(1, 150) if f(50, s2, 4, '') and not(f(50, s2, 2, ''))])
+
+#------------------------------------------------------------
+
+def f(s1, s2, m):
+    if s1 + s2 >= 189: return m%2 == 0
+    if m == 0: return 0
+    c = [f(s1+s2, s2, m-1), f(s1, s2+s1, m-1), f(max(s1, s2), max(s1, s2), m-1)]
+    return any(c) if (m-1)%2 == 0 else all(c)
+
+# print(*[s2 for s2 in range(1, 184) if f(5, s2, 2)])
+print(*[s2 for s2 in range(1, 184) if f(5, s2, 3) and not(f(5, s2, 1))])
+print(*[s2 for s2 in range(1, 184) if f(5, s2, 4) and not f(5, s2, 2)])

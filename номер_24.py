@@ -400,3 +400,19 @@ with open('24.txt') as f:
       k = 0
   l.append(k)
 print(max(l))
+
+
+with open('24.txt') as f:
+    a = f.readline()
+    l = []
+    k = 0
+    i = 0
+    while i < len(a):
+        if a[i:i+3] in 'ABA' or a[i:i+3] in 'BAB':
+            k += 1
+            i += 3
+        else:
+            l.append(k)
+            k = 0
+            i += 1
+    print(max(l))

@@ -83,3 +83,18 @@ def f(x, y, z=None):
     return total
 
 print(f(16, 48))
+
+#------------------------------------------------------------
+
+def Sum(x):
+    s = 0
+    while x > 0:
+        s += x%10
+        x //= 10
+    return s
+
+def f(x, y):
+    if x == y: return 1
+    if x < y: return 0
+    return f(x - int(str(x**2)[0]), y) + f(x - Sum(x), y)
+print(f(32, 1))
