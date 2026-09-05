@@ -98,3 +98,26 @@ def f(x, y):
     if x < y: return 0
     return f(x - int(str(x**2)[0]), y) + f(x - Sum(x), y)
 print(f(32, 1))
+
+#------------------------------------------------------------
+
+def f(x, y):
+  if x == y: return 1
+  if x > y: return 0
+  if str(x)[-2] < str(x)[-1]:
+    return f(x+1, y)+f(int(str(x)[:-2]+str(x)[-1]+str(x)[-2]), y)
+  return f(x+1, y)
+print(f(100, 150))
+
+#------------------------------------------------------------
+
+f = [0] * 7555447
+for i in range(1, 7555447):
+  if i == 1:
+    f[i] = 2
+  elif i > 1 and f[i-1] < 7555444:
+    f[i] = f[i-1] + 6
+  else:
+    f[i] = f[i-1] - 7555444
+          
+print(f[7555446])

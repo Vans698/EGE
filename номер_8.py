@@ -142,3 +142,14 @@ for i in product('0123456', repeat=5):
     # if s.count('6') == 1 and (s[1] != s[0] and s[1] != s[2] and s[3] != s[2] and s[3] != s[4]):
       k += 1
 print(k)
+
+#------------------------------------------------------------
+
+from itertools import product
+k = 0
+for i in product('0123456789AB', repeat=7):
+    d = ''.join(i)
+    if int(d[0], 12) != 0:
+        if (int(d[0], 12)%3 == 0 and int(d[1], 12)%3 != 0 and int(d[2], 12)%3 == 0 and int(d[3], 12)%3 != 0 and int(d[4], 12)%3 == 0 and int(d[5], 12)%3 != 0 and int(d[6], 12)%3 == 0) or (int(d[0], 12)%3 != 0 and int(d[1], 12)%3 == 0 and int(d[2], 12)%3 != 0 and int(d[3], 12)%3 == 0 and int(d[4], 12)%3 != 0 and int(d[5], 12)%3 == 0 and int(d[6], 12)%3 != 0):
+            k += 1
+print(k)

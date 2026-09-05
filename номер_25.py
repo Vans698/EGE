@@ -457,3 +457,20 @@ for i in range(4_501_347_296, 5_000_000_000):
   m = f(i)
   if len(m) == 2 and m[0]*m[1] == i:
     print(i, min(m), m)
+
+#------------------------------------------------------------
+
+n = 0
+for x in range(800_001, 1_500_000):
+    m = []
+    for i in range(2, int(x**0.5)+1):
+        if x%i == 0:
+          if i%100 == 14 and i != 14:
+            m.append(i)
+          if i != (x//i) and (x//i)%100 == 14 and (x//i) != 14:
+              m.append(x//i)
+    if len(m) > 0:
+        print(x, min(m))
+        n+=1
+        if n == 5:
+            break
